@@ -52,9 +52,13 @@ Overall, positive sentiment was slightly more prevalent than negative sentiment,
 
 Neutrality scores were quite similar across publications with three exceptions: Talking Points Memo and Business Insider had unually low neutrality peaks, and the New York Times has an unusually high peak.
 
-![alt text]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/intensity_kdes.png)
 
-## Linear Models
+See the [full report](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/reports/Sentiment%20in%20Reporting.pdf) for more details, comparisons, and exploration.
+
+## Linear Regression
+
+
 
 ## Clustering
 
