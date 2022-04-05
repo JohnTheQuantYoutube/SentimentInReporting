@@ -114,6 +114,38 @@ When all articles are considered together, the publications form four distinct g
 | Washington Post | Breitbart | | |
 | | Fox News | | |
 
+In the plot with axes of neutrality and compound sentiment, publications are much more spread out than when the articles are split. However, the New York Times is still off by itself in the high-neutrality-high-compound-score corner.
 
+![]()
+
+#### K-Means Clustering
+
+Articles were clustered separately. Through trial and error, it was determined that three seemed to be the best number of clusters. These turned out to be:
+
+* Articles with negative compound scores and low neutrality
+* Articles with positive compound scores and low neutrality
+* Articles with high neutrality
+
+Once articles had been clustered, the proportion of articles from each publication in each cluster was compared to the proportion of articles from that publication in the dataset as a whole. Thus, it was possible to determine which news sources were over-represented or under-represented in each cluster. See the [full report](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/reports/Sentiment%20in%20Reporting.pdf) for more details.
+
+![]()
+
+#### DBSCAN
+
+The DBSCAN algorithm automatically tunes the number of clusters and puts all observations that do not fall into one of the clusters into an "other" category. In this case, there was one cluster, which was deemed "mainstream", and all other articles were outliers. As in the K-Means section, the proportion of articles from each publication in each cluster was compared to the total proportion of articles from that publication to compare which news sources were over-represented or under-represented in each cluster.
+
+![]()
 
 ## Conclusion
+
+Sentiment in political reporting was compared between 15 different news sources and tens of thousands of articles. The average neutrality and compound sentiment was compared by linear regression, direct comparisons were made between publications using Tukey HSD tests, and then three different clustering techniques were used to explore the relationships between news sources more closely. Some interesting conclusions:
+
+* Fox News seems to be fully within the mainstream, despite being the only publication with a negative mean compound sentiment score
+* NPR is under-represent in the mainstream cluster
+* Articles about Democrats tend to have stronger negative sentiment than articles about Republicans
+* The New York Times is incredibly neutral and consistent in its reporting
+* National Review is more similar to Atlantic and Vox than to Breitbart or Fox News
+
+In further research, it would be interesting to examine these relationships over time, especially through the Trump administration. It would also be interesting to compare web-based media outlets to tradition television/paper media and examine quality of reporting on different platforms. 
+
+There is an ever-growing wealth of articles available to be analyzed, and with the current political unrest in the United States, the quality of news being ingested by the population is more important than ever. Recent improvements in data-based text analysis allow for drawing bias-free inference about political slant; this analysis should be trustworthy even to the most entrenched consumer.
