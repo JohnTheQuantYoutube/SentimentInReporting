@@ -58,8 +58,62 @@ See the [full report](https://github.com/JohnTheQuantYoutube/SentimentInReportin
 
 ## Linear Regression
 
+Whether the news source had a significant effect on neutrality or the compound sentiment score was tested using OLS regression and ANOVA hypothesis testing. Separate tests were performed for each dependent variable and for each group of articles: 4 tests total. 
 
+For Republicans, 14 of the 15 publications showed significant effects on the neutrality score; the lone non-signficiant news source was NPR. Breitbart, Fox News, Buzzfeed News, the Washington Post, and the New York Times had positive coefficients, while CNN, the New York Post, National Review, Vox and others had negative coefficients (indicating less neutrality in reporting). The statsmodels linear regression output appears below.
+
+![]()
+
+In testing compound scores for articles about Republicans, all coefficients were positive, indicating that all tested publications had positive average sentiment toward Republicans. Interestingly, the highest compound coefficient was from the New York Times (0.008), and lowest was from Reuters (0.001).
+
+Post-Hoc testing consisted of Tukey's Test for Honest Significant Differences. After taking Bonferroni's correction into account, the lowest significance level that could be accurately considered was $\alpha=0.21$, which is quite high. Still, the HSD test yielded interesting results:
+
+* CNN is not significantly different from Fox News, Breitbart, or the Washington Post
+* Breitbart has a significantly lower compound sentiment score than the New York Times, Washington Post, or NPR
+* Fox News has a significantly lower compound sentiment score than the New York Times or NPR
+* The New York Times has a higher compound score than Reuters, the Washington Post, or Talking Points Memo
+
+![]()
+
+Similarly, the linear regression on articles about Democrats using neutrality as the dependent variable found that 12 of the 15 publications had a significant effect. The news sources that did not have a signficant effect on neutrality were NPR, the Guardian, and Talking Points Memo. CNN, National Review, the New York Post, Reuters and Vox all had negative coefficients (less neutral than average), while Breitbart, Fox News, the Washington Post, New York Times, and others had positive coefficients.
+
+When it comes to compound score, 11 of the 15 publications returned significantly non-zero coefficients. However, only one news source (Reuters) had a p-value greater than 0.1, and all coefficients were positive. See the regression table below.
+
+![]()
+
+The Tukey HSD test found the following unexpected results:
+
+* The New York Times has significantly higher neutrality in articles about Democrats than any publication except for Fox News and Buzzfeed News
+* Vox has a significantly higher compound score than nearly any other publication
+* National Review is only different from Vox
+* Most publications are only significantly from the three highest: Vox, Atlantic, and NPR; the others seem to form a group
+
+![]()
 
 ## Clustering
+
+#### Agglomerative Hierarchical Clustering
+
+In articles about Republicans, the two most similar publications are the New York Post and Reuters, Breitbart's nearest neighbor is the Washington Post, and Fox News is closest to Buzzfeed News. National Review, Vox and Atlantic are a separate cluster from the other publications.
+
+When plotted on an axis of compound score by neutrality, the New York Times is far off by itself, in the high-neutrality-high-compound-score corner.
+
+![]()
+
+In articles about Republicans, the two most similar publications are again the New York Post and Reuters. However, this time thw Washington Post is closest to the New York Times and Fox News is closest to Breitbart. Atlantic and Vox are in their own separate cluster. 
+
+![]()
+
+When all articles are considered together, the publications form four distinct groups.
+
+| Group 1 | Group 2 | Group 3 | Group 4|
+|:-------:|:-------:|:-------:|:------:|
+| NYT | Business Insider | Guardian | National Review |
+| NPR | Talking Points Memo | New York Post | Atlantic |
+| CNN | Buzzfeed News | Reuters | Vox |
+| Washington Post | Breitbart | | |
+| | Fox News | | |
+
+
 
 ## Conclusion
