@@ -62,7 +62,7 @@ Whether the news source had a significant effect on neutrality or the compound s
 
 For Republicans, 14 of the 15 publications showed significant effects on the neutrality score; the lone non-signficiant news source was NPR. Breitbart, Fox News, Buzzfeed News, the Washington Post, and the New York Times had positive coefficients, while CNN, the New York Post, National Review, Vox and others had negative coefficients (indicating less neutrality in reporting). The statsmodels linear regression output appears below.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/rep_linreg_neutral.png)
 
 In testing compound scores for articles about Republicans, all coefficients were positive, indicating that all tested publications had positive average sentiment toward Republicans. Interestingly, the highest compound coefficient was from the New York Times (0.008), and lowest was from Reuters (0.001).
 
@@ -73,13 +73,13 @@ Post-Hoc testing consisted of Tukey's Test for Honest Significant Differences. A
 * Fox News has a significantly lower compound sentiment score than the New York Times or NPR
 * The New York Times has a higher compound score than Reuters, the Washington Post, or Talking Points Memo
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/rep_barplot_tukey.png)
 
 Similarly, the linear regression on articles about Democrats using neutrality as the dependent variable found that 12 of the 15 publications had a significant effect. The news sources that did not have a signficant effect on neutrality were NPR, the Guardian, and Talking Points Memo. CNN, National Review, the New York Post, Reuters and Vox all had negative coefficients (less neutral than average), while Breitbart, Fox News, the Washington Post, New York Times, and others had positive coefficients.
 
 When it comes to compound score, 11 of the 15 publications returned significantly non-zero coefficients. However, only one news source (Reuters) had a p-value greater than 0.1, and all coefficients were positive. See the regression table below.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/dem_linreg_compound.png)
 
 The Tukey HSD test found the following unexpected results:
 
@@ -88,7 +88,7 @@ The Tukey HSD test found the following unexpected results:
 * National Review is only different from Vox
 * Most publications are only significantly from the three highest: Vox, Atlantic, and NPR; the others seem to form a group
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/dem_barplot_tukey.png)
 
 ## Clustering
 
@@ -98,11 +98,11 @@ In articles about Republicans, the two most similar publications are the New Yor
 
 When plotted on an axis of compound score by neutrality, the New York Times is far off by itself, in the high-neutrality-high-compound-score corner.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/rep_aggclust.png)
 
-In articles about Republicans, the two most similar publications are again the New York Post and Reuters. However, this time thw Washington Post is closest to the New York Times and Fox News is closest to Breitbart. Atlantic and Vox are in their own separate cluster. 
+In articles about Democrats, the two most similar publications are again the New York Post and Reuters. However, this time thw Washington Post is closest to the New York Times and Fox News is closest to Breitbart. Atlantic and Vox are in their own separate cluster. 
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/dem_aggclust.png)
 
 When all articles are considered together, the publications form four distinct groups.
 
@@ -116,7 +116,7 @@ When all articles are considered together, the publications form four distinct g
 
 In the plot with axes of neutrality and compound sentiment, publications are much more spread out than when the articles are split. However, the New York Times is still off by itself in the high-neutrality-high-compound-score corner.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/all_aggclust.png)
 
 #### K-Means Clustering
 
@@ -128,13 +128,13 @@ Articles were clustered separately. Through trial and error, it was determined t
 
 Once articles had been clustered, the proportion of articles from each publication in each cluster was compared to the proportion of articles from that publication in the dataset as a whole. Thus, it was possible to determine which news sources were over-represented or under-represented in each cluster. See the [full report](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/reports/Sentiment%20in%20Reporting.pdf) for more details.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/all_kmeans.png)
 
 #### DBSCAN
 
 The DBSCAN algorithm automatically tunes the number of clusters and puts all observations that do not fall into one of the clusters into an "other" category. In this case, there was one cluster, which was deemed "mainstream", and all other articles were outliers. As in the K-Means section, the proportion of articles from each publication in each cluster was compared to the total proportion of articles from that publication to compare which news sources were over-represented or under-represented in each cluster.
 
-![]()
+![](https://github.com/JohnTheQuantYoutube/SentimentInReporting/blob/main/plots/all_dbscan.png)
 
 ## Conclusion
 
