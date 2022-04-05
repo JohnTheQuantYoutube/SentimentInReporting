@@ -1,5 +1,7 @@
 # Sentiment in Reporting: A data-driven analysis of bias in 15 major publications
 
+*readme is better viewed in light mode; some graphics may disappear in dark mode*
+
 Trust in the media is at an all-time low. There is a common argument that news should "Tell us what happened, not how to feel about it." That is the impetus for this research. Are news sources telling us how to feel? If so, which publications are doing it? Finally, which political party receives more emotional support from the media?
 
 But trust has fallen so low that any research that disagrees with a person's predispositions is also treated as untrustworthy; chalk it up to researcher bias. How can we remove researcher bias? The methods used in this research were chosen to limit researcher interaction with data. How can the research be biased when the researcher barely touches it? 
